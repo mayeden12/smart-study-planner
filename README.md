@@ -1,14 +1,14 @@
-# Smart Meeting Summarizer (FastAPI + Streamlit)
+# Smart Study Planner (FastAPI + Streamlit)
 
-A full-stack application that uses a local LLM to transform messy meeting notes into structured summaries.
-- **Backend**: FastAPI microservice for AI processing.
+A full-stack application that uses a local LLM to organize study subjects, track deadlines, and generate AI-powered learning hacks.
+- **Backend**: FastAPI microservice for managing topics and AI processing.
 - **Frontend**: Streamlit UI for easy text input and summary display.
 
 ---
 
 ## 🌟 New Features
-- **🤖 AI-Powered Summarization**: Automatically generates a concise summary from raw text using `TinyLlama`.
-- **📝 Action Item Extraction**: Identifies and lists tasks, assignees, and deadlines from the meeting notes.
+- **🤖 AI-Powered Study Hacks**: Automatically generates quick learning strategies from topic names using `TinyLlama`.
+- **📝 Study Tracking**: Organizes subjects, tracks exam deadlines, and manages daily study goals.
 - **🐳 Dockerized Architecture**: Seamless multi-container setup with Docker Compose.
 ---
 
@@ -17,10 +17,10 @@ A full-stack application that uses a local LLM to transform messy meeting notes 
 
 
 ```text
-MeetingSummarizer/
+SmartStudyPlanner/
 ├── app/
-│   ├── api/            # API endpoint for summarization
-│   ├── core/           # AI summarization logic
+│   ├── api/            # API endpoints for study topics
+│   ├── core/           # AI study hack generation logic
 │   └── schemas/        # Pydantic validation schemas
 ├── frontend/
 │   ├── api_client.py   # API Communication Logic
@@ -110,13 +110,13 @@ The Streamlit UI will open automatically in your browser at: **http://localhost:
 
 # 🎨 UI Overview
 
-The Streamlit frontend provides a clean interface for summarizing your meeting notes.
+The Streamlit frontend provides a clean interface for managing your study schedule.
 
 ## UI Features
 
-1.  **📝 Input Area**: A large text area to paste your raw meeting notes or any other text.
-2.  **✨ Generate Summary Button**: Kicks off the AI summarization process.
-3.  **📄 AI-Generated Summary Display**: The structured summary, including action items and deadlines, is displayed neatly using Markdown.
+1.  **📅 Home & Schedule**: View daily study goals and track progress.
+2.  **🚀 Learning Hub**: Add new subjects, set deadlines, and organize study notes.
+3.  **💡 AI Insights**: Generate rapid learning strategies for any subject using the local AI engine.
 
 ---
 
@@ -126,14 +126,11 @@ The Streamlit frontend provides a clean interface for summarizing your meeting n
 
 | Method | Endpoint | Description |
 |--------|----------|-------------|
-| POST   | `/summarize` | Accepts raw text and returns an AI-generated summary. |
-## Request Example
-**POST** `/summarize`
-```json
-{
-  "text": "The meeting was about the Q3 launch. Alice will handle the marketing slides by Friday. Bob is responsible for the final code review, due next Wednesday. We need to finalize the budget."
-}
-```
+| GET    | `/topics` | Retrieves all study topics. |
+| POST   | `/topics` | Creates a new study topic. |
+| PATCH  | `/topics/{id}` | Updates a topic (e.g., status, favorite). |
+| DELETE | `/topics/{id}` | Deletes a study topic. |
+| POST   | `/topics/{id}/hack`| Generates and saves an AI study hack for the topic. |
 
 **DELETE** `/tasks/{id}`
 ```json

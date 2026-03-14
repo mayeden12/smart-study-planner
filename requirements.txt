@@ -1,9 +1,9 @@
 fastapi
-uvicorn
+uvicorn[standard]
+sqlalchemy
+pydantic
+python-dotenv
+ollama
 pytest
 httpx
 streamlit
-requests
-sqlalchemy
-pandas
-ollama
