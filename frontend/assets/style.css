@@ -1,0 +1,121 @@
+/* Main theme colors */
+
+:root {
+    --primary-color: #047857;
+    /* Educational Emerald Green */
+    --light-color: #34D399;
+    /* Bright Green */
+    --dark-color: #064E3B;
+    /* Deep Forest Green */
+    --bg-color: #F0FDF4;
+    /* Soft Mint background */
+    --accent-color: #E2E8F0;
+    /* Slate border color */
+    --sidebar-bg: #1E293B;
+    /* Slate Dark Sidebar */
+}
+
+
+/* Hide Streamlit Header and Deploy Button */
+
+header[data-testid="stHeader"] {
+    display: none !important;
+}
+
+
+/* Hide Streamlit Footer (optional but recommended for a clean look) */
+
+footer {
+    visibility: hidden !important;
+}
+
+
+/* Premium Dark Sidebar Styling */
+
+[data-testid="stSidebar"] {
+    background-color: var(--sidebar-bg);
+    border-right: 1px solid #1E293B;
+}
+
+[data-testid="stSidebar"] * {
+    color: #F8FAFC !important;
+}
+
+.main {
+    background: linear-gradient(135deg, var(--bg-color) 0%, #FFFFFF 100%);
+}
+
+h1,
+h2,
+h3 {
+    color: var(--primary-color) !important;
+    font-weight: 700 !important;
+}
+
+
+/* Button styling */
+
+.stButton>button {
+    background: linear-gradient(135deg, #059669 0%, #047857 100%);
+    color: white !important;
+    border: none;
+    border-radius: 8px;
+    padding: 0.5rem 1.5rem !important;
+    font-weight: 600;
+    width: auto !important;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(4, 120, 87, 0.2);
+}
+
+.stButton>button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(4, 120, 87, 0.3);
+}
+
+
+/* Localhost style for CSV Button */
+
+.stDownloadButton>button {
+    background-color: rgba(59, 130, 246, 0.1) !important;
+    color: var(--light-color) !important;
+    border: 1px solid rgba(59, 130, 246, 0.3) !important;
+    font-family: monospace !important;
+    border-radius: 4px !important;
+    width: 100% !important;
+}
+
+
+/* Metrics and Containers */
+
+div[data-testid="metric-container"] {
+    background: white;
+    border: 1px solid var(--accent-color);
+    border-radius: 12px;
+    padding: 1rem;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+}
+
+.streamlit-expanderHeader {
+    background-color: white !important;
+    border: 1px solid var(--accent-color) !important;
+    color: var(--primary-color) !important;
+    border-radius: 8px;
+}
+
+
+/* Text Output Styling */
+
+.stMarkdown p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #334155;
+}
+
+
+/* Main Container Border Customization */
+
+div[data-testid="stVerticalBlockBorderWrapper"] {
+    border-radius: 12px !important;
+    background-color: white !important;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
