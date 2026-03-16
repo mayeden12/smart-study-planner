@@ -10,7 +10,7 @@ services:
 
   backend:
     build: .
-    container_name: summarizer_backend
+    container_name: study_planner_backend
     ports:
       - "8000:8000"
     volumes:
@@ -24,7 +24,7 @@ services:
 
   frontend:
     build: .
-    container_name: summarizer_frontend
+    container_name: study_planner_frontend
     ports:
       - "8501:8501"
     environment:

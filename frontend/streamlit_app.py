@@ -41,7 +41,10 @@ def main():
         st.divider()
         
         topics = api.fetch_topics()
-        daily_topics = [t for t in topics if t.get("due_date") == selected_date_str]
+        daily_topics = [
+            t for t in topics 
+            if t.get("due_date") and str(t.get("due_date")).split("T")[0] == selected_date_str
+        ]
         
         if not daily_topics:
             st.info("No study sessions scheduled for this day. Enjoy your free time! 🎉")
@@ -83,7 +86,7 @@ def main():
                     desc = st.text_area("Key Notes")
                 with col2:
                     status = st.selectbox("Current Status", ["todo", "in_progress", "done"])
-                    due_date = st.date_input("Exam Deadline", value=None)
+                    due_date = st.date_input("Exam Deadline")
                 
                 submit_btn = st.form_submit_button("💾 Save Subject")
             if submit_btn:
