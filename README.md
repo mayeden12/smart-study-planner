@@ -118,7 +118,24 @@ pytest
 
 ---
 
-## 🤝 Contributing & License
+## AI Assistance
+
+As per the course submission guidelines, this section outlines the AI tools used during development:
+*   **Tools Used:** Gemini / LLM coding assistants.
+*   **Usage:** Used to brainstorm the Streamlit UI layout, refactor FastAPI routing, generate Docker Compose configurations, and write the initial `pytest` test cases.
+*   **Verification:** All AI-generated code was manually reviewed, integrated into the existing architecture, and tested locally to ensure it met project requirements and handled errors gracefully.
+
+---
+
+## Database Setup
+
+The project uses SQLite for local persistence. The database tables are automatically initialized and created when the FastAPI server starts (via SQLAlchemy's `create_all`). 
+
+*Note for graders:* Local `.db` artifacts are explicitly ignored via `.gitignore` to comply with submission rules.
+
+---
+
+## Contributing & License
 
 Contributions, issues, and feature requests are welcome! 
 This project is licensed under the MIT License.
