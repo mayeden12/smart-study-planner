@@ -38,7 +38,7 @@ def update_topic(topic_id: int, topic: StudyTopicUpdate, db: Session = Depends(g
     return db_topic
 
 
-@router.patch("/{topic_id}/generate-hack", response_model=StudyTopicResponse)
+@router.post("/{topic_id}/hack", response_model=StudyTopicResponse)
 def generate_hack(topic_id: int, db: Session = Depends(get_db)):
     db_topic = db.query(StudyTopicDB).filter(StudyTopicDB.id == topic_id).first()
     if not db_topic:

@@ -54,7 +54,7 @@ def main():
             progress = len(done_topics) / len(daily_topics)
             st.progress(progress, text=f"Daily Progress: {len(done_topics)} out of {len(daily_topics)} completed")
             
-            st.markdown(f"### 🗓️ Schedule for {selected_date.strftime('%b %d, %Y')}")
+            st.markdown(f"### Schedule for {selected_date.strftime('%b %d, %Y')}")
             
             for t in daily_topics:
                 with st.container(border=True):
