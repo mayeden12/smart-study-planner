@@ -6,8 +6,8 @@ from sqlalchemy.orm import sessionmaker
 from app.main import app
 from app.database import Base, get_db
 
-# Setup a separate in-memory database for testing
-SQLALCHEMY_DATABASE_URL = "sqlite:///./test.db"
+# Setup a strictly in-memory database for testing
+SQLALCHEMY_DATABASE_URL = "sqlite:///:memory:"
 engine = create_engine(SQLALCHEMY_DATABASE_URL, connect_args={"check_same_thread": False})
 TestingSessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 

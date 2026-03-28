@@ -140,6 +140,8 @@ def main():
             st.code(api.API_URL, language="bash")
             st.write("**AI Model Version:**")
             st.info("TinyLlama (Local Engine)")
+            st.write("**API Documentation (Backend Calls):**")
+            st.markdown(f"[🔗 Open Swagger UI]({api.API_URL}/docs) &nbsp;|&nbsp; [🔗 Open ReDoc]({api.API_URL}/redoc)")
 
     elif menu_selection == "📖 Info":
         st.title("ℹ️ How to Use")

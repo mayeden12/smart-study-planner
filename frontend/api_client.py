@@ -8,7 +8,7 @@ API_URL = os.getenv("BACKEND_URL", "http://127.0.0.1:8000")
 
 def fetch_topics() -> List[Dict]:
     try:
-        res = requests.get(f"{API_URL}/topics")
+        res = requests.get(f"{API_URL}/topics/")
         res.raise_for_status()
         return res.json()
     except Exception as e:
@@ -17,7 +17,7 @@ def fetch_topics() -> List[Dict]:
 
 def create_topic(payload: Dict):
     try:
-        res = requests.post(f"{API_URL}/topics", json=payload)
+        res = requests.post(f"{API_URL}/topics/", json=payload)
         res.raise_for_status()
     except Exception as e:
         st.error(f"⚠️ Failed to save: {e}")

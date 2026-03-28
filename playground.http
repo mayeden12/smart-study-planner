@@ -1,0 +1,25 @@
+### 1. List all study topics
+GET http://127.0.0.1:8000/topics/
+Accept: application/json
+
+### 2. Create a new study topic
+POST http://127.0.0.1:8000/topics/
+Content-Type: application/json
+
+{
+  "title": "Master FastAPI Foundations",
+  "description": "Learn routing, dependencies, and Pydantic validation for EX1",
+  "status": "todo"
+}
+
+### 3. Update a topic (Change the ID '1' to match an actual topic ID)
+PATCH http://127.0.0.1:8000/topics/1
+Content-Type: application/json
+
+{
+  "status": "in_progress",
+  "is_favorite": true
+}
+
+### 4. Delete a topic (Change the ID '1' to match an actual topic ID)
+DELETE http://127.0.0.1:8000/topics/1

@@ -53,7 +53,9 @@ def generate_hack(topic_id: int, db: Session = Depends(get_db)):
 @router.delete("/{topic_id}")
 def delete_topic(topic_id: int, db: Session = Depends(get_db)):
     db_topic = db.query(StudyTopicDB).filter(StudyTopicDB.id == topic_id).first()
-    if db_topic:
-        db.delete(db_topic)
-        db.commit()
+    if not db_topic:
+        raise HTTPException(status_code=404, detail="Topic not found")
+        
+    db.delete(db_topic)
+    db.commit()
     return {"message": "Deleted successfully"}
